@@ -1,3 +1,5 @@
+#ifndef ASSOC_CUCKOO_H
+#define ASSOC_CUCKOO_H
 /* associative array */
 void assoc2_init(const int hashpower_init);
 item *assoc2_find(const char *key, const size_t nkey, const uint32_t hv);
@@ -10,3 +12,4 @@ void assoc2_delete(const char *key, const size_t nkey, const uint32_t hv);
 void assoc2_destroy(void);
 void assoc2_pre_bench(void);
 void assoc2_post_bench(void);
+#endif

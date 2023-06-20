@@ -1,3 +1,5 @@
+#ifndef ASSOC_CHAIN_H
+#define ASSOC_CHAIN_H
 /* associative array */
 void assoc_init(const int hashpower_init);
 item *assoc_find(const char *key, const size_t nkey, const uint32_t hv);
@@ -12,3 +14,4 @@ void stop_assoc_maintenance_thread(void);
 void assoc_destroy(void);
 void assoc_pre_bench(void);
 void assoc_post_bench(void);
+#endif

@@ -1,3 +1,5 @@
+#ifndef MEMCACHED_H
+#define MEMCACHED_H
 /* -*- Mode: C; tab-width: 4; c-basic-offset: 4; indent-tabs-mode: nil -*- */
 
 /** \file
@@ -617,7 +619,6 @@ extern void drop_privileges(void);
 //  keyver array has 8192 buckets,
 #define  keyver_count ((unsigned long int)1 << (13))
 #define  keyver_mask  (keyver_count - 1)
-uint32_t keyver_array[keyver_count];
 #define read_keyver(lock) \
     __sync_fetch_and_add(&keyver_array[lock & keyver_mask], 0)
 
@@ -631,16 +632,19 @@ typedef  unsigned long  int  ub4;   /* unsigned 4-byte quantities */
 typedef  unsigned      short ub2;   /* unsigned 2-byte quantities */
 typedef  unsigned       char ub1;   /* unsigned 1-byte quantities */
 
-/* how many powers of 2's worth of buckets we use */
-unsigned int hashpower;// = HASHPOWER_DEFAULT;
-ub4 hashsize;
-ub4 hashmask;
-ub4 tagpower;
-ub4 tagmask;
 
 /* defintion for buckets */
 typedef item* ValueType;
 typedef ub1   TagType;
+
+
+/* how many powers of 2's worth of buckets we use */
+extern unsigned int hashpower;// = HASHPOWER_DEFAULT;
+extern uint32_t keyver_array[keyver_count];
+extern ub4 hashsize;
+extern ub4 hashmask;
+extern ub4 tagpower;
+extern ub4 tagmask;
 
 static inline size_t _index_hash(const uint32_t hv) {
     return  (hv >> (32 - hashpower)); 
@@ -667,3 +671,4 @@ static inline size_t _lock_index(const size_t i1,
     //return tag;
     return i1 <  i2 ? i1 : i2;
 }
+#endif

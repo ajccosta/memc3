@@ -54,6 +54,15 @@
 #endif
 #endif
 
+
+unsigned int hashpower;// = HASHPOWER_DEFAULT;
+uint32_t keyver_array[keyver_count];
+ub4 hashsize;
+ub4 hashmask;
+ub4 tagpower;
+ub4 tagmask;
+
+
 /*
  * forward declarations
  */
