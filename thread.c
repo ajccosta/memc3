@@ -225,9 +225,10 @@ static void create_worker(void *(*func)(void *), void *arg, int i) {
     int             ret;
 
 #ifdef __linux__
+    int num_cores = sysconf(_SC_NPROCESSORS_ONLN);
+    int coreid = i % num_cores;
+
     cpu_set_t cpuset;
-    int coreid;
-    coreid = 6 + i;
     CPU_ZERO(&cpuset);
     CPU_SET(coreid, &cpuset);
     pthread_attr_init(&attr);
