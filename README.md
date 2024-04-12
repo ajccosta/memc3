@@ -32,3 +32,18 @@ Benchmark
 In our [NSDI paper][1], memc3 is benchmared using workloads gerenated by [Yahoo YCSB][2]. Note that, YCSB is designed to benchmark the performance of cloud file systems, but too slow when used to benchmark memc3 or memcached directly. Therefore, we pre-generate workloads (using script ``bench/ycsb_workloads_gen.sh`` which reads settings in ``bench/ycsb_workloads_settings``), and run clients to read these pre-generated traces before benchmarking.
 
   [2]: dl.acm.org/citation.cfm?id=1807152 "Benchmarking cloud serving systems with YCSB"
+
+
+Changes to original MemC3 repository
+=========
+
+Some changes were made to this repository:
+
+1. asserts are off by default as memc3 was violating its assert statements (this means the version we test might not be correct)
+2. The binary name to run memc3 was changed from `memc3` to `memcached`, so to run memc3 simply do:
+```
+ ./memcached <args>
+```
+3. sigignore was depecrated. It was changed to signal
+4. The number of cores is not assumed to be 6, it is checked dynamically
+
