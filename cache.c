@@ -11,8 +11,8 @@
 
 #ifndef NDEBUG
 const uint64_t redzone_pattern = 0xdeadbeefcafebabe;
-int cache_error = 0;
 #endif
+int cache_error = 0;
 
 const int initial_pool_size = 64;
 
