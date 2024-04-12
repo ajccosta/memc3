@@ -27,8 +27,8 @@
 
 #include "sasl_defs.h"
 
-#include "memc3_config.h"
-#include "memc3_util.h"
+#include "memcached_config.h"
+#include "memcached_util.h"
 
 /** Maximum length of a key. */
 #define KEY_MAX_LENGTH 250

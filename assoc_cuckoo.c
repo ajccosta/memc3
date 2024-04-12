@@ -20,8 +20,8 @@
 #include <xmmintrin.h>
 #include <immintrin.h>
 
-#include "memc3_config.h"
-#include "memc3_util.h"
+#include "memcached_config.h"
+#include "memcached_util.h"
 #include "bit_util.h"
 
 

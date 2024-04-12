@@ -11,11 +11,11 @@
 
 #include "memcached.h"
 
-#include "memc3_util.h"
+#include "memcached_util.h"
 
-void print_memc3_settings()
+void print_memcached_settings()
 {
-    printf("memc3 settings:\n");
+    printf("memcached settings:\n");
 #ifdef MEMC3_ASSOC_CHAIN 
     printf("\thashtable = built-in hashtable\n");
 #endif

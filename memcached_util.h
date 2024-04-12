@@ -1,13 +1,13 @@
 #ifndef __BENCH_UTIL__
 #define __BENCH_UTIL__
-#include "memc3_config.h"
+#include "memcached_config.h"
 #include <execinfo.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 /* forward declaration */
-void print_memc3_settings(void);
+void print_memcached_settings(void);
 
 void *alloc(size_t size);
 void dealloc(void *p);
